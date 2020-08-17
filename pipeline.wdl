@@ -31,6 +31,7 @@ workflow Annotation {
         File vcfIndex
         File referenceFasta
         File referenceFastaFai
+        File customs
         String outputDir = "."
         String cacheDir
         String cacheVersion
@@ -39,6 +40,8 @@ workflow Annotation {
         "vt": "quay.io/biocontainers/vt:0.57721--hdf88d34_2"
         }
     }
+
+    Array[String] customs_arr = if defined(customs) then read_lines(customs) else ""
 
     call vt.Normalize as normalize {
         input:
@@ -57,14 +60,15 @@ workflow Annotation {
     }
 
     scatter(chromosome in list.chromosomes) {
-        call vep.annotation as annotation {
+        call vep.Annotation as annotation {
             input:
                 dockerImage = dockerImages["vep"],
                 vcfFile = normalize.outputVcf,
                 cacheDir = cacheDir,
                 cacheVersion = cacheVersion,
                 outputPath = outputDir + "/chromosomes/annotated-" + chromosome + ".vcf.gz",
-                chromosome = chromosome
+                chromosome = chromosome,
+                customs_arr = customs_arr
         }
         
         call samtools.Tabix as tabix {
