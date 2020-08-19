@@ -61,13 +61,6 @@ workflow Annotation {
 
     scatter(chromosome in list.chromosomes) {
 
-        call vep.Customs as customString {
-            input:
-                customFiles = customFiles,
-                customFileIndices = customFileIndices,
-                customFields = customFields
-        }
-
         call vep.Annotation as annotation {
             input:
                 dockerImage = dockerImages["vep"],
@@ -76,7 +69,9 @@ workflow Annotation {
                 cacheVersion = cacheVersion,
                 outputPath = outputDir + "/chromosomes/annotated-" + chromosome + ".vcf.gz",
                 chromosome = chromosome,
-                customs = customsString.out
+                customFiles = customFiles,
+                customFileIndices = customFileIndices,
+                customFields = customFields
         }
         
         call samtools.Tabix as tabix {
