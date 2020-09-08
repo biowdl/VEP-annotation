@@ -1,0 +1,21 @@
+{
+  "Annotation.referenceFastaFai": "tests/data/reference/reference.fasta.fai",
+  "Annotation.referenceFasta": "tests/data/reference/reference.fasta",
+  "Annotation.customs": "/exports/sasc/cagaser/00_biowdl/VEP-annotation/customs.txt",
+  "Annotation.vcfIndex": "tests/integration/test.vcf.gz.tbi",
+  "Annotation.cacheDir": "/exports/sasc/cagaser/data/vep_cache_100",
+  "Annotation.vcfFile": "tests/integration/test.vcf.gz",
+  "Annotation.cacheVersion": "100",
+  "Annotation.customFiles":[
+    "/home/cagaser/biowdl-development/dummy-VEP-annotation/gnomad-v3-chr21-test.vcf.gz",
+    "/home/cagaser/biowdl-development/dummy-VEP-annotation/gnomad-v3-chr21-test.vcf.gz.tbi"
+  ],
+  "Annotation.customFileIndices":[
+    "/home/cagaser/biowdl-development/dummy-VEP-annotation/gonl-chr21-test.vcf.gz",
+    "/home/cagaser/biowdl-development/dummy-VEP-annotation/gonl-chr21-test.vcf.gz.tbi"
+  ],
+  "Annotation.customFields": [
+    "gnomadCustom,vcf,exact,0,AF_nfe",
+    "goNl,vcf,exact,0,AF"
+  ]
+}

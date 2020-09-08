@@ -1,0 +1,2 @@
+/exports/sasc/cagaser/data/gnomad_v3/gnomad.genomes.r3.0.sites.vcf.bgz,gnomadCustom,vcf,exact,0,AF_nfe
+/exports/genomes/species/H.sapiens/GRCh38_goNL/annotation/gonl/multisample.parents_only.info_only.vcf.gz,goNl,vcf,exact,0,AF
